@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-11-09T14:55:28
+# Project created by QtCreator 2014-11-09T22:10:29
 #
 #-------------------------------------------------
 
@@ -13,16 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        main.cpp \
-    lagrange.cpp \
+        mainwindow.cpp \
     funcionexacta.cpp \
-    interfazalgoritmosgraficador.cpp \
-    graficador.cpp
+    graficador.cpp \
+    lagrange.cpp
 
-HEADERS  += main.h \
-    lagrange.h \
+HEADERS  += mainwindow.h \
     funcionexacta.h \
+    graficador.h \
     interfazalgoritmosgraficador.h \
-    graficador.h
+    lagrange.h
 
-FORMS    += main.ui
+FORMS    += mainwindow.ui
