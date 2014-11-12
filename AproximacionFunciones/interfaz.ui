@@ -338,7 +338,7 @@ border-color: rgb(0, 0, 0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QWidget#wid_cont_tabla_scroll
+                      <string notr="true">QWidget#wid_cont_tablaScroll
 {
   border: 2px solid green;
 
@@ -659,10 +659,13 @@ border-color: rgb(0, 0, 0);
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border: 2px solid green;
-border-radius: 20px;
-padding: 2px;
-border-color: rgb(0, 0, 0);</string>
+           <string notr="true">QWidget#wg_grafica
+{
+  border: 2px solid green;
+
+border-radius: 15px;
+border-color: rgb(0, 0, 0);
+}</string>
           </property>
          </widget>
         </item>

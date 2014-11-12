@@ -303,7 +303,7 @@ public:
         wid_cont_tablaScroll = new QWidget(gBox_algoritmoLagrange);
         wid_cont_tablaScroll->setObjectName(QStringLiteral("wid_cont_tablaScroll"));
         wid_cont_tablaScroll->setMinimumSize(QSize(295, 113));
-        wid_cont_tablaScroll->setStyleSheet(QLatin1String("QWidget#wid_cont_tabla_scroll\n"
+        wid_cont_tablaScroll->setStyleSheet(QLatin1String("QWidget#wid_cont_tablaScroll\n"
 "{\n"
 "  border: 2px solid green;\n"
 "\n"
@@ -518,10 +518,13 @@ public:
         wg_grafica = new QWidget(layoutWidget);
         wg_grafica->setObjectName(QStringLiteral("wg_grafica"));
         wg_grafica->setMinimumSize(QSize(579, 550));
-        wg_grafica->setStyleSheet(QLatin1String("border: 2px solid green;\n"
-"border-radius: 20px;\n"
-"padding: 2px;\n"
-"border-color: rgb(0, 0, 0);"));
+        wg_grafica->setStyleSheet(QLatin1String("QWidget#wg_grafica\n"
+"{\n"
+"  border: 2px solid green;\n"
+"\n"
+"border-radius: 15px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"}"));
 
         verticalLayout_16->addWidget(wg_grafica);
 
