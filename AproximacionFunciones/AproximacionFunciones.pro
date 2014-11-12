@@ -13,15 +13,20 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     funcionexacta.cpp \
     graficador.cpp \
-    lagrange.cpp
+    lagrange.cpp \
+    interfaz.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     funcionexacta.h \
     graficador.h \
     interfazalgoritmosgraficador.h \
-    lagrange.h
+    lagrange.h \
+    interfaz.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    interfaz.ui
+
+RESOURCES += \
+    imagenes.qrc
