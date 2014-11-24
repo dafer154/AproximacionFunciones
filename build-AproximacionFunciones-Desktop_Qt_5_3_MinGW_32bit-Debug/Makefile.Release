@@ -115,7 +115,9 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release/qrc_imagenes.cpp
 release/qrc_imagenes.cpp: ../AproximacionFunciones/imagenes.qrc \
 		../AproximacionFunciones/IconosInterfaz/validar.png \
-		../AproximacionFunciones/IconosInterfaz/validar_pre.png
+		../AproximacionFunciones/IconosInterfaz/abrir.png \
+		../AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png \
+		../AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png
 	C:/Qt/5.3/mingw482_32/bin/rcc.exe -name imagenes ../AproximacionFunciones/imagenes.qrc -o release/qrc_imagenes.cpp
 
 compiler_moc_header_make_all: release/moc_interfaz.cpp
@@ -224,6 +226,7 @@ release/moc_interfaz.cpp: C:/Qt/5.3/mingw482_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.3/mingw482_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.3/mingw482_32/include/QtGui/qicon.h \
+		C:/Qt/5.3/mingw482_32/include/QtCore/QVector \
 		../AproximacionFunciones/interfaz.h
 	'C:\Qt\5.3\mingw482_32\bin\moc.exe' $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.3/mingw482_32/mkspecs/win32-g++ -I'D:/3cer semestre ingenieria/metodos numericos/proyecto_final/AproximacionFunciones/AproximacionFunciones' -IC:/Qt/5.3/mingw482_32/include -IC:/Qt/5.3/mingw482_32/include/QtWidgets -IC:/Qt/5.3/mingw482_32/include/QtGui -IC:/Qt/5.3/mingw482_32/include/QtCore -I. ../AproximacionFunciones/interfaz.h -o release/moc_interfaz.cpp
 
@@ -351,6 +354,7 @@ release/main.o: ../AproximacionFunciones/main.cpp ../AproximacionFunciones/inter
 		C:/Qt/5.3/mingw482_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.3/mingw482_32/include/QtGui/qicon.h \
+		C:/Qt/5.3/mingw482_32/include/QtCore/QVector \
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/QApplication \
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/qapplication.h \
 		C:/Qt/5.3/mingw482_32/include/QtCore/qcoreapplication.h \
@@ -473,7 +477,14 @@ release/interfaz.o: ../AproximacionFunciones/interfaz.cpp ../AproximacionFuncion
 		C:/Qt/5.3/mingw482_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.3/mingw482_32/include/QtGui/qicon.h \
-		ui_interfaz.h
+		C:/Qt/5.3/mingw482_32/include/QtCore/QVector \
+		ui_interfaz.h \
+		C:/Qt/5.3/mingw482_32/include/QtWidgets/QFileDialog \
+		C:/Qt/5.3/mingw482_32/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.3/mingw482_32/include/QtCore/qdir.h \
+		C:/Qt/5.3/mingw482_32/include/QtCore/qfileinfo.h \
+		C:/Qt/5.3/mingw482_32/include/QtWidgets/qdialog.h \
+		C:/Qt/5.3/mingw482_32/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/interfaz.o ../AproximacionFunciones/interfaz.cpp
 
 release/qrc_imagenes.o: release/qrc_imagenes.cpp 

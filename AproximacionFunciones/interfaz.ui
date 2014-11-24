@@ -20,6 +20,12 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
+      <property name="opaqueResize">
+       <bool>true</bool>
+      </property>
+      <property name="handleWidth">
+       <number>5</number>
+      </property>
       <widget class="QWidget" name="widget" native="true">
        <property name="maximumSize">
         <size>
@@ -27,382 +33,647 @@
          <height>612</height>
         </size>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_15">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_14">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_11">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
-              <item>
-               <widget class="QLabel" name="lb_funcion">
-                <property name="minimumSize">
-                 <size>
-                  <width>49</width>
-                  <height>21</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>49</width>
-                  <height>21</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Función&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="tb_funcion">
-                <property name="minimumSize">
-                 <size>
-                  <width>237</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>315</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Ej: sin(x)</string>
-                </property>
-                <property name="dragEnabled">
-                 <bool>false</bool>
-                </property>
-                <property name="readOnly">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="lb_validarFuncion">
-                <property name="minimumSize">
-                 <size>
-                  <width>21</width>
-                  <height>21</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>21</width>
-                  <height>21</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="imagenes.qrc">:/AproximacionFunciones/IconosInterfaz/validar.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="gBox_algoritmoLagrange">
-              <property name="minimumSize">
-               <size>
-                <width>327</width>
-                <height>319</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>427</width>
-                <height>319</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="title">
-               <string>Algoritmo de Lagrange</string>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_12">
-                 <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_9">
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_7">
-                     <item>
-                      <layout class="QVBoxLayout" name="verticalLayout_6">
-                       <item>
-                        <widget class="QLabel" name="lb_tituloParametros">
-                         <property name="styleSheet">
-                          <string notr="true">border: none;
+           <widget class="QLabel" name="lb_funcion">
+            <property name="minimumSize">
+             <size>
+              <width>49</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>49</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Función&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="tb_funcion">
+            <property name="minimumSize">
+             <size>
+              <width>237</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>315</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Ej: sin(x)</string>
+            </property>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bt_validarFuncion">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="imagenes.qrc">
+              <normaloff>:/AproximacionFunciones/IconosInterfaz/validar.png</normaloff>
+              <selectedoff>:/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png</selectedoff>
+              <selectedon>:/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png</selectedon>:/AproximacionFunciones/IconosInterfaz/validar.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="gBox_algoritmoLagrange">
+          <property name="minimumSize">
+           <size>
+            <width>327</width>
+            <height>319</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>427</width>
+            <height>319</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>Algoritmo de Lagrange</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QLabel" name="lb_tituloParametros">
+             <property name="styleSheet">
+              <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                         </property>
-                         <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Parametros iniciales&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <layout class="QVBoxLayout" name="verticalLayout_5">
-                         <item>
-                          <widget class="QRadioButton" name="rB_cargarArchivo">
-                           <property name="styleSheet">
-                            <string notr="true">border: none;
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Parametros iniciales&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QRadioButton" name="rB_cargarArchivo">
+               <property name="styleSheet">
+                <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                           </property>
-                           <property name="text">
-                            <string>Cargar desde archivo</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <layout class="QHBoxLayout" name="horizontalLayout_4">
-                           <item>
-                            <widget class="QRadioButton" name="rB_generarPuntos">
-                             <property name="maximumSize">
-                              <size>
-                               <width>16777215</width>
-                               <height>17</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">border: none;
+               </property>
+               <property name="text">
+                <string>Cargar desde archivo</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>218</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="bt_abrirArchivo">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>32</width>
+                 <height>23</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>32</width>
+                 <height>23</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="mouseTracking">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="imagenes.qrc">
+                 <normaloff>:/AproximacionFunciones/IconosInterfaz/abrir.png</normaloff>
+                 <normalon>:/AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png</normalon>
+                 <activeoff>:/AproximacionFunciones/IconosInterfaz/abrir.png</activeoff>
+                 <activeon>:/AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png</activeon>
+                 <selectedoff>:/AproximacionFunciones/IconosInterfaz/abrir.png</selectedoff>
+                 <selectedon>:/AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png</selectedon>:/AproximacionFunciones/IconosInterfaz/abrir.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>22</width>
+                 <height>22</height>
+                </size>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QRadioButton" name="rB_generarPuntos">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>17</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                             </property>
-                             <property name="text">
-                              <string>Generar puntos</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QSpinBox" name="sb_puntos">
-                             <property name="maximumSize">
-                              <size>
-                               <width>101</width>
-                               <height>20</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true"/>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </item>
-                        </layout>
-                       </item>
-                      </layout>
-                     </item>
-                     <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_5">
-                       <item>
-                        <widget class="QLabel" name="lb_intervalo">
-                         <property name="maximumSize">
-                          <size>
-                           <width>16777215</width>
-                           <height>22</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">border: none;
+               </property>
+               <property name="text">
+                <string>Generar puntos</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="sb_puntos">
+               <property name="maximumSize">
+                <size>
+                 <width>101</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="lb_intervalo">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>22</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                         </property>
-                         <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Intervalo:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="lb_corchete1">
-                         <property name="maximumSize">
-                          <size>
-                           <width>16777215</width>
-                           <height>22</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">border: none;
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Intervalo:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_corchete1">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>22</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                         </property>
-                         <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;[&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLineEdit" name="tb_intervarlo1">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="lb_simboloComa">
-                         <property name="minimumSize">
-                          <size>
-                           <width>13</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>16777215</width>
-                           <height>22</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">border: none;
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;[&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="tb_intervarlo1">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_simboloComa">
+               <property name="minimumSize">
+                <size>
+                 <width>13</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>22</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                         </property>
-                         <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLineEdit" name="tb_intervarlo2">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="lb_corchete2">
-                         <property name="maximumSize">
-                          <size>
-                           <width>16777215</width>
-                           <height>22</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">border: none;
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="tb_intervarlo2">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_corchete2">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>22</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border: none;
 border-radius: 20px;
 padding: 2px;
 border-color: rgb(0, 0, 0);</string>
-                         </property>
-                         <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                    </layout>
-                   </item>
-                   <item alignment="Qt::AlignRight">
-                    <widget class="QLabel" name="lb_validarAlgoritmo">
-                     <property name="minimumSize">
-                      <size>
-                       <width>21</width>
-                       <height>21</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>21</width>
-                       <height>21</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="pixmap">
-                      <pixmap resource="imagenes.qrc">:/AproximacionFunciones/IconosInterfaz/validar.png</pixmap>
-                     </property>
-                     <property name="scaledContents">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QWidget" name="wid_cont_tablaScroll" native="true">
-                     <property name="minimumSize">
-                      <size>
-                       <width>295</width>
-                       <height>113</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QWidget#wid_cont_tablaScroll
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item alignment="Qt::AlignRight">
+            <widget class="QPushButton" name="bt_validarParametros">
+             <property name="minimumSize">
+              <size>
+               <width>32</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>32</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="imagenes.qrc">
+               <normaloff>:/AproximacionFunciones/IconosInterfaz/validar.png</normaloff>
+               <normalon>:/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png</normalon>:/AproximacionFunciones/IconosInterfaz/validar.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>22</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="wid_cont_tablaScroll" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>295</width>
+               <height>113</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QWidget#wid_cont_tablaScroll
 {
   border: 2px solid green;
 
 border-radius: 15px;
 border-color: rgb(0, 0, 0);
 }</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_8">
-                      <item>
-                       <layout class="QVBoxLayout" name="verticalLayout_4">
-                        <item>
-                         <widget class="QTableWidget" name="tabla_puntos">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>70</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>16777215</width>
-                            <height>70</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QScrollBar" name="sc_scrolldeTabla">
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                  </layout>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <widget class="QTableWidget" name="tabla_puntos">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QScrollBar" name="sc_scrolldeTabla">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignRight">
+            <widget class="QPushButton" name="bt_graficar">
+             <property name="maximumSize">
+              <size>
+               <width>75</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>Graficar</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QGroupBox" name="gb_verificacionError">
+            <property name="minimumSize">
+             <size>
+              <width>315</width>
+              <height>149</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>425</width>
+              <height>149</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="title">
+             <string>Verificacion de error</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QLabel" name="lb_valordeX">
+                 <property name="styleSheet">
+                  <string notr="true">border: none;
+</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Valor de x:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="tb_valordeX">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="dragEnabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="readOnly">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="bt_validarX">
+                 <property name="minimumSize">
+                  <size>
+                   <width>32</width>
+                   <height>23</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>32</width>
+                   <height>23</height>
+                  </size>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="imagenes.qrc">
+                   <normaloff>:/AproximacionFunciones/IconosInterfaz/validar.png</normaloff>
+                   <normalon>:/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png</normalon>:/AproximacionFunciones/IconosInterfaz/validar.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>22</width>
+                   <height>22</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="Line" name="line">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_2">
+                 <item>
+                  <widget class="QLabel" name="lb_funcionEvaluada">
+                   <property name="styleSheet">
+                    <string notr="true">border: none;
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;F(x):&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
                  </item>
-                 <item alignment="Qt::AlignRight">
-                  <widget class="QPushButton" name="bt_graficar">
-                   <property name="maximumSize">
-                    <size>
-                     <width>75</width>
-                     <height>23</height>
-                    </size>
+                 <item>
+                  <widget class="QLabel" name="lb_segunLagrange">
+                   <property name="styleSheet">
+                    <string notr="true">border: none;
+</string>
                    </property>
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Segun Lagrange:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                    </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lb_errorAbsoluto">
+                   <property name="styleSheet">
+                    <string notr="true">border: none;
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Error absoluto:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <item>
+                  <widget class="QLineEdit" name="tb_funcionEvaluada">
                    <property name="styleSheet">
                     <string notr="true"/>
                    </property>
                    <property name="text">
-                    <string>Graficar</string>
+                    <string/>
                    </property>
-                   <property name="checkable">
+                   <property name="dragEnabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="readOnly">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="tb_segunLagrange">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="dragEnabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="readOnly">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="tb_errorAbsoluto">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="dragEnabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="readOnly">
                     <bool>false</bool>
                    </property>
                   </widget>
@@ -410,213 +681,28 @@ border-color: rgb(0, 0, 0);
                 </layout>
                </item>
               </layout>
-             </widget>
-            </item>
-           </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QPushButton" name="bt_limpiarTodo">
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Limpiar todo</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QGroupBox" name="gb_verificacionError">
-              <property name="minimumSize">
-               <size>
-                <width>315</width>
-                <height>149</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>425</width>
-                <height>149</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="title">
-               <string>Verificacion de error</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_13">
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_3">
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_2">
-                   <item>
-                    <widget class="QLabel" name="lb_valordeX">
-                     <property name="styleSheet">
-                      <string notr="true">border: none;
-</string>
-                     </property>
-                     <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Valor de x:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="tb_valordeX">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="dragEnabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="readOnly">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="lb_validarValordeX">
-                     <property name="minimumSize">
-                      <size>
-                       <width>21</width>
-                       <height>21</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>21</width>
-                       <height>21</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="pixmap">
-                      <pixmap resource="imagenes.qrc">:/AproximacionFunciones/IconosInterfaz/validar.png</pixmap>
-                     </property>
-                     <property name="scaledContents">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout">
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_2">
-                     <item>
-                      <widget class="QLabel" name="lb_funcionEvaluada">
-                       <property name="styleSheet">
-                        <string notr="true">border: none;
-</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;F(x):&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="lb_segunLagrange">
-                       <property name="styleSheet">
-                        <string notr="true">border: none;
-</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Segun Lagrange:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="lb_errorAbsoluto">
-                       <property name="styleSheet">
-                        <string notr="true">border: none;
-</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Error absoluto:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_10">
-                     <item>
-                      <widget class="QLineEdit" name="tb_funcionEvaluada">
-                       <property name="styleSheet">
-                        <string notr="true"/>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="dragEnabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="readOnly">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="tb_segunLagrange">
-                       <property name="styleSheet">
-                        <string notr="true"/>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="dragEnabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="readOnly">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="tb_errorAbsoluto">
-                       <property name="styleSheet">
-                        <string notr="true"/>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="dragEnabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="readOnly">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item alignment="Qt::AlignRight">
-             <widget class="QPushButton" name="bt_limpiarTodo">
-              <property name="maximumSize">
-               <size>
-                <width>75</width>
-                <height>23</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Limpiar todo</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_7"/>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="horizontalLayout_7"/>
           </item>
          </layout>
         </item>

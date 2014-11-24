@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/AproximacionFunciones">
         <file>IconosInterfaz/validar.png</file>
-        <file>IconosInterfaz/validar_pre.png</file>
+        <file>IconosInterfaz/abrir.png</file>
+        <file>IconosInterfaz/abrir_deshabilitado.png</file>
+        <file>IconosInterfaz/validar_deshabilitado.png</file>
     </qresource>
 </RCC>

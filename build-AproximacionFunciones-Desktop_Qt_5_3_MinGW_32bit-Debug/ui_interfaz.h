@@ -40,22 +40,18 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QSplitter *splitter;
     QWidget *widget;
-    QVBoxLayout *verticalLayout_15;
-    QVBoxLayout *verticalLayout_14;
-    QVBoxLayout *verticalLayout_11;
-    QHBoxLayout *horizontalLayout_6;
+    QVBoxLayout *verticalLayout_7;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *lb_funcion;
     QLineEdit *tb_funcion;
-    QLabel *lb_validarFuncion;
+    QPushButton *bt_validarFuncion;
     QGroupBox *gBox_algoritmoLagrange;
-    QHBoxLayout *horizontalLayout_3;
-    QVBoxLayout *verticalLayout_12;
-    QVBoxLayout *verticalLayout_9;
-    QVBoxLayout *verticalLayout_7;
-    QVBoxLayout *verticalLayout_6;
-    QLabel *lb_tituloParametros;
     QVBoxLayout *verticalLayout_5;
+    QLabel *lb_tituloParametros;
+    QHBoxLayout *horizontalLayout_6;
     QRadioButton *rB_cargarArchivo;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *bt_abrirArchivo;
     QHBoxLayout *horizontalLayout_4;
     QRadioButton *rB_generarPuntos;
     QSpinBox *sb_puntos;
@@ -66,7 +62,7 @@ public:
     QLabel *lb_simboloComa;
     QLineEdit *tb_intervarlo2;
     QLabel *lb_corchete2;
-    QLabel *lb_validarAlgoritmo;
+    QPushButton *bt_validarParametros;
     QWidget *wid_cont_tablaScroll;
     QVBoxLayout *verticalLayout_8;
     QVBoxLayout *verticalLayout_4;
@@ -75,12 +71,11 @@ public:
     QPushButton *bt_graficar;
     QVBoxLayout *verticalLayout;
     QGroupBox *gb_verificacionError;
-    QVBoxLayout *verticalLayout_13;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *lb_valordeX;
     QLineEdit *tb_valordeX;
-    QLabel *lb_validarValordeX;
+    QPushButton *bt_validarX;
     QFrame *line;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
@@ -114,28 +109,24 @@ public:
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QStringLiteral("splitter"));
         splitter->setOrientation(Qt::Horizontal);
+        splitter->setOpaqueResize(true);
+        splitter->setHandleWidth(5);
         widget = new QWidget(splitter);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setMaximumSize(QSize(433, 612));
-        verticalLayout_15 = new QVBoxLayout(widget);
-        verticalLayout_15->setSpacing(6);
-        verticalLayout_15->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
-        verticalLayout_14 = new QVBoxLayout();
-        verticalLayout_14->setSpacing(6);
-        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        verticalLayout_11 = new QVBoxLayout();
-        verticalLayout_11->setSpacing(6);
-        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        verticalLayout_7 = new QVBoxLayout(widget);
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         lb_funcion = new QLabel(widget);
         lb_funcion->setObjectName(QStringLiteral("lb_funcion"));
         lb_funcion->setMinimumSize(QSize(49, 21));
         lb_funcion->setMaximumSize(QSize(49, 21));
 
-        horizontalLayout_6->addWidget(lb_funcion);
+        horizontalLayout_3->addWidget(lb_funcion);
 
         tb_funcion = new QLineEdit(widget);
         tb_funcion->setObjectName(QStringLiteral("tb_funcion"));
@@ -144,41 +135,37 @@ public:
         tb_funcion->setDragEnabled(false);
         tb_funcion->setReadOnly(false);
 
-        horizontalLayout_6->addWidget(tb_funcion);
+        horizontalLayout_3->addWidget(tb_funcion);
 
-        lb_validarFuncion = new QLabel(widget);
-        lb_validarFuncion->setObjectName(QStringLiteral("lb_validarFuncion"));
-        lb_validarFuncion->setMinimumSize(QSize(21, 21));
-        lb_validarFuncion->setMaximumSize(QSize(21, 21));
-        lb_validarFuncion->setPixmap(QPixmap(QString::fromUtf8(":/AproximacionFunciones/IconosInterfaz/validar.png")));
-        lb_validarFuncion->setScaledContents(true);
+        bt_validarFuncion = new QPushButton(widget);
+        bt_validarFuncion->setObjectName(QStringLiteral("bt_validarFuncion"));
+        bt_validarFuncion->setMinimumSize(QSize(32, 23));
+        bt_validarFuncion->setMaximumSize(QSize(32, 23));
+        bt_validarFuncion->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/validar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png"), QSize(), QIcon::Selected, QIcon::Off);
+        icon.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png"), QSize(), QIcon::Selected, QIcon::On);
+        bt_validarFuncion->setIcon(icon);
+        bt_validarFuncion->setIconSize(QSize(20, 20));
+        bt_validarFuncion->setAutoDefault(false);
+        bt_validarFuncion->setDefault(false);
+        bt_validarFuncion->setFlat(true);
 
-        horizontalLayout_6->addWidget(lb_validarFuncion);
+        horizontalLayout_3->addWidget(bt_validarFuncion);
 
 
-        verticalLayout_11->addLayout(horizontalLayout_6);
+        verticalLayout_7->addLayout(horizontalLayout_3);
 
         gBox_algoritmoLagrange = new QGroupBox(widget);
         gBox_algoritmoLagrange->setObjectName(QStringLiteral("gBox_algoritmoLagrange"));
         gBox_algoritmoLagrange->setMinimumSize(QSize(327, 319));
         gBox_algoritmoLagrange->setMaximumSize(QSize(427, 319));
         gBox_algoritmoLagrange->setStyleSheet(QStringLiteral(""));
-        horizontalLayout_3 = new QHBoxLayout(gBox_algoritmoLagrange);
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        verticalLayout_12 = new QVBoxLayout();
-        verticalLayout_12->setSpacing(6);
-        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
-        verticalLayout_9 = new QVBoxLayout();
-        verticalLayout_9->setSpacing(6);
-        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        verticalLayout_5 = new QVBoxLayout(gBox_algoritmoLagrange);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         lb_tituloParametros = new QLabel(gBox_algoritmoLagrange);
         lb_tituloParametros->setObjectName(QStringLiteral("lb_tituloParametros"));
         lb_tituloParametros->setStyleSheet(QLatin1String("border: none;\n"
@@ -186,11 +173,11 @@ public:
 "padding: 2px;\n"
 "border-color: rgb(0, 0, 0);"));
 
-        verticalLayout_6->addWidget(lb_tituloParametros);
+        verticalLayout_5->addWidget(lb_tituloParametros);
 
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         rB_cargarArchivo = new QRadioButton(gBox_algoritmoLagrange);
         rB_cargarArchivo->setObjectName(QStringLiteral("rB_cargarArchivo"));
         rB_cargarArchivo->setStyleSheet(QLatin1String("border: none;\n"
@@ -198,7 +185,35 @@ public:
 "padding: 2px;\n"
 "border-color: rgb(0, 0, 0);"));
 
-        verticalLayout_5->addWidget(rB_cargarArchivo);
+        horizontalLayout_6->addWidget(rB_cargarArchivo);
+
+        horizontalSpacer = new QSpacerItem(218, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer);
+
+        bt_abrirArchivo = new QPushButton(gBox_algoritmoLagrange);
+        bt_abrirArchivo->setObjectName(QStringLiteral("bt_abrirArchivo"));
+        bt_abrirArchivo->setEnabled(true);
+        bt_abrirArchivo->setMinimumSize(QSize(32, 23));
+        bt_abrirArchivo->setMaximumSize(QSize(32, 23));
+        bt_abrirArchivo->setCursor(QCursor(Qt::PointingHandCursor));
+        bt_abrirArchivo->setMouseTracking(false);
+        bt_abrirArchivo->setStyleSheet(QStringLiteral(""));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/abrir.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png"), QSize(), QIcon::Normal, QIcon::On);
+        icon1.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/abrir.png"), QSize(), QIcon::Active, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png"), QSize(), QIcon::Active, QIcon::On);
+        icon1.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/abrir.png"), QSize(), QIcon::Selected, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/abrir_deshabilitado.png"), QSize(), QIcon::Selected, QIcon::On);
+        bt_abrirArchivo->setIcon(icon1);
+        bt_abrirArchivo->setIconSize(QSize(22, 22));
+        bt_abrirArchivo->setFlat(true);
+
+        horizontalLayout_6->addWidget(bt_abrirArchivo);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_6);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
@@ -222,12 +237,6 @@ public:
 
 
         verticalLayout_5->addLayout(horizontalLayout_4);
-
-
-        verticalLayout_6->addLayout(verticalLayout_5);
-
-
-        verticalLayout_7->addLayout(verticalLayout_6);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
@@ -286,19 +295,21 @@ public:
         horizontalLayout_5->addWidget(lb_corchete2);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_5);
+        verticalLayout_5->addLayout(horizontalLayout_5);
 
+        bt_validarParametros = new QPushButton(gBox_algoritmoLagrange);
+        bt_validarParametros->setObjectName(QStringLiteral("bt_validarParametros"));
+        bt_validarParametros->setMinimumSize(QSize(32, 23));
+        bt_validarParametros->setMaximumSize(QSize(32, 23));
+        bt_validarParametros->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/validar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/AproximacionFunciones/IconosInterfaz/validar_deshabilitado.png"), QSize(), QIcon::Normal, QIcon::On);
+        bt_validarParametros->setIcon(icon2);
+        bt_validarParametros->setIconSize(QSize(22, 22));
+        bt_validarParametros->setFlat(true);
 
-        verticalLayout_9->addLayout(verticalLayout_7);
-
-        lb_validarAlgoritmo = new QLabel(gBox_algoritmoLagrange);
-        lb_validarAlgoritmo->setObjectName(QStringLiteral("lb_validarAlgoritmo"));
-        lb_validarAlgoritmo->setMinimumSize(QSize(21, 21));
-        lb_validarAlgoritmo->setMaximumSize(QSize(21, 21));
-        lb_validarAlgoritmo->setPixmap(QPixmap(QString::fromUtf8(":/AproximacionFunciones/IconosInterfaz/validar.png")));
-        lb_validarAlgoritmo->setScaledContents(true);
-
-        verticalLayout_9->addWidget(lb_validarAlgoritmo, 0, Qt::AlignRight);
+        verticalLayout_5->addWidget(bt_validarParametros, 0, Qt::AlignRight);
 
         wid_cont_tablaScroll = new QWidget(gBox_algoritmoLagrange);
         wid_cont_tablaScroll->setObjectName(QStringLiteral("wid_cont_tablaScroll"));
@@ -336,27 +347,19 @@ public:
         verticalLayout_8->addLayout(verticalLayout_4);
 
 
-        verticalLayout_9->addWidget(wid_cont_tablaScroll);
-
-
-        verticalLayout_12->addLayout(verticalLayout_9);
+        verticalLayout_5->addWidget(wid_cont_tablaScroll);
 
         bt_graficar = new QPushButton(gBox_algoritmoLagrange);
         bt_graficar->setObjectName(QStringLiteral("bt_graficar"));
         bt_graficar->setMaximumSize(QSize(75, 23));
+        bt_graficar->setCursor(QCursor(Qt::PointingHandCursor));
         bt_graficar->setStyleSheet(QStringLiteral(""));
         bt_graficar->setCheckable(false);
 
-        verticalLayout_12->addWidget(bt_graficar, 0, Qt::AlignRight);
+        verticalLayout_5->addWidget(bt_graficar, 0, Qt::AlignRight);
 
 
-        horizontalLayout_3->addLayout(verticalLayout_12);
-
-
-        verticalLayout_11->addWidget(gBox_algoritmoLagrange);
-
-
-        verticalLayout_14->addLayout(verticalLayout_11);
+        verticalLayout_7->addWidget(gBox_algoritmoLagrange);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
@@ -366,12 +369,9 @@ public:
         gb_verificacionError->setMinimumSize(QSize(315, 149));
         gb_verificacionError->setMaximumSize(QSize(425, 149));
         gb_verificacionError->setStyleSheet(QStringLiteral(""));
-        verticalLayout_13 = new QVBoxLayout(gb_verificacionError);
-        verticalLayout_13->setSpacing(6);
-        verticalLayout_13->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
-        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3 = new QVBoxLayout(gb_verificacionError);
         verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
@@ -391,14 +391,16 @@ public:
 
         horizontalLayout_2->addWidget(tb_valordeX);
 
-        lb_validarValordeX = new QLabel(gb_verificacionError);
-        lb_validarValordeX->setObjectName(QStringLiteral("lb_validarValordeX"));
-        lb_validarValordeX->setMinimumSize(QSize(21, 21));
-        lb_validarValordeX->setMaximumSize(QSize(21, 21));
-        lb_validarValordeX->setPixmap(QPixmap(QString::fromUtf8(":/AproximacionFunciones/IconosInterfaz/validar.png")));
-        lb_validarValordeX->setScaledContents(true);
+        bt_validarX = new QPushButton(gb_verificacionError);
+        bt_validarX->setObjectName(QStringLiteral("bt_validarX"));
+        bt_validarX->setMinimumSize(QSize(32, 23));
+        bt_validarX->setMaximumSize(QSize(32, 23));
+        bt_validarX->setCursor(QCursor(Qt::PointingHandCursor));
+        bt_validarX->setIcon(icon2);
+        bt_validarX->setIconSize(QSize(22, 22));
+        bt_validarX->setFlat(true);
 
-        horizontalLayout_2->addWidget(lb_validarValordeX);
+        horizontalLayout_2->addWidget(bt_validarX);
 
 
         verticalLayout_3->addLayout(horizontalLayout_2);
@@ -474,14 +476,12 @@ public:
         verticalLayout_3->addLayout(horizontalLayout);
 
 
-        verticalLayout_13->addLayout(verticalLayout_3);
-
-
         verticalLayout->addWidget(gb_verificacionError);
 
         bt_limpiarTodo = new QPushButton(widget);
         bt_limpiarTodo->setObjectName(QStringLiteral("bt_limpiarTodo"));
         bt_limpiarTodo->setMaximumSize(QSize(75, 23));
+        bt_limpiarTodo->setCursor(QCursor(Qt::PointingHandCursor));
 
         verticalLayout->addWidget(bt_limpiarTodo, 0, Qt::AlignRight);
 
@@ -492,14 +492,11 @@ public:
         verticalLayout->addLayout(horizontalLayout_7);
 
 
-        verticalLayout_14->addLayout(verticalLayout);
-
-
-        verticalLayout_15->addLayout(verticalLayout_14);
+        verticalLayout_7->addLayout(verticalLayout);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_15->addItem(verticalSpacer);
+        verticalLayout_7->addItem(verticalSpacer);
 
         splitter->addWidget(widget);
         layoutWidget = new QWidget(splitter);
@@ -547,16 +544,17 @@ public:
         Interfaz->setWindowTitle(QApplication::translate("Interfaz", "Interfaz", 0));
         lb_funcion->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:11pt;\">Funci\303\263n</span></p></body></html>", 0));
         tb_funcion->setText(QApplication::translate("Interfaz", "Ej: sin(x)", 0));
-        lb_validarFuncion->setText(QString());
+        bt_validarFuncion->setText(QString());
         gBox_algoritmoLagrange->setTitle(QApplication::translate("Interfaz", "Algoritmo de Lagrange", 0));
         lb_tituloParametros->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:11pt; font-weight:600;\">Parametros iniciales</span></p></body></html>", 0));
         rB_cargarArchivo->setText(QApplication::translate("Interfaz", "Cargar desde archivo", 0));
+        bt_abrirArchivo->setText(QString());
         rB_generarPuntos->setText(QApplication::translate("Interfaz", "Generar puntos", 0));
         lb_intervalo->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Intervalo:</span></p></body></html>", 0));
         lb_corchete1->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">[</span></p></body></html>", 0));
         lb_simboloComa->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-weight:600;\">,</span></p></body></html>", 0));
         lb_corchete2->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-weight:600;\">]</span></p></body></html>", 0));
-        lb_validarAlgoritmo->setText(QString());
+        bt_validarParametros->setText(QString());
 #ifndef QT_NO_TOOLTIP
         bt_graficar->setToolTip(QApplication::translate("Interfaz", "<html><head/><body><p><br/></p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
@@ -564,7 +562,7 @@ public:
         gb_verificacionError->setTitle(QApplication::translate("Interfaz", "Verificacion de error", 0));
         lb_valordeX->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:11pt;\">Valor de x:</span></p></body></html>", 0));
         tb_valordeX->setText(QString());
-        lb_validarValordeX->setText(QString());
+        bt_validarX->setText(QString());
         lb_funcionEvaluada->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:11pt;\">F(x):</span></p></body></html>", 0));
         lb_segunLagrange->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:11pt;\">Segun Lagrange:</span></p></body></html>", 0));
         lb_errorAbsoluto->setText(QApplication::translate("Interfaz", "<html><head/><body><p><span style=\" font-size:11pt;\">Error absoluto:</span></p></body></html>", 0));
