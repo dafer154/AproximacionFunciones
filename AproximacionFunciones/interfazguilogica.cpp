@@ -10,13 +10,12 @@ InterfazGuiLogica::~InterfazGuiLogica()
 
 }
 
-QVector <double> InterfazGuiLogica::calcularPuntosConLagrange(QVector<double> xIniciales,
-                                                              QVector<double> yIniciales, QVector<double> xAEvaluar){
-    int size = puntos.size();
-    QVector <double> respuesta;
+void InterfazGuiLogica::calcularPuntosConLagrange(QVector<double> xIniciales,
+                                                              QVector<double> yIniciales, QVector<double> puntosAEvaluar){
+    resultadoLagrange.clear();
+    int size = puntosAEvaluar.size();
     for (int i = 0; i < size; ++i) {
-        respuesta.push_back(lagrange.polinomioLagrange(xIniciales, yIniciales,xAEvaluar.at(i)));
+        resultadoLagrange.push_back(lagrange.polinomioLagrange(xIniciales, yIniciales,puntosAEvaluar.at(i)));
     }
-    return respuesta;
 }
 

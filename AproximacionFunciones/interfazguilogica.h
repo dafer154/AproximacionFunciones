@@ -9,8 +9,9 @@ public:
     InterfazGuiLogica();
     ~InterfazGuiLogica();
     Lagrange lagrange;
-    QVector <double> calcularPuntosConLagrange(QVector<double> xIniciales,
-                                               QVector<double> yIniciales, QVector<double> xAEvaluar);
+    QVector<double> resultadoLagrange;
+    void calcularPuntosConLagrange(QVector<double> xIniciales,
+                                               QVector<double> yIniciales, QVector<double> puntosAEvaluar);
 };
 
 #endif // INTERFAZGUILOGICA_H

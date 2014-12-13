@@ -43,8 +43,8 @@ void trig_function()
    }
 }
 
-int main()
+/*int main()
 {
    trig_function<double>();
    return 0;
-}
+}*/
