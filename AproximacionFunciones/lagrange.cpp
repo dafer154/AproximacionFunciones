@@ -1,6 +1,5 @@
 #include "lagrange.h"
 
-#include <iostream>
 
 /**
  * @brief Lagrange::Lagrange constructor de la clase
@@ -25,7 +24,7 @@ Lagrange::~Lagrange()
  * @param xAEvaluar valor que se desea interpolar
  * @return
  */
-double Lagrange::polinomioLagrange(QVector<double> xIniciales, QVector<double> yIniciales, double xAEvaluar)
+double Lagrange::calcularPuntoConLagrange(QVector<double> xIniciales, QVector<double> yIniciales, double xAEvaluar)
 {
     double resultadoLagrange = 0;
 
@@ -41,9 +40,16 @@ double Lagrange::polinomioLagrange(QVector<double> xIniciales, QVector<double> y
             }
         }
         resultadoLagrange += (numerador/denominador)*yIniciales.at(i);
-        cout << (numerador/denominador)*yIniciales.at(i) << endl;
     }
     return resultadoLagrange;
 }
 
+void Lagrange::calcularPuntosConLagrange(QVector<double> xIniciales,
+                                                              QVector<double> yIniciales, QVector<double> puntosAEvaluar){
+    resultadoLagrange.clear();
+    int size = puntosAEvaluar.size();
+    for (int i = 0; i < size; ++i) {
+        resultadoLagrange.push_back(calcularPuntoConLagrange(xIniciales, yIniciales,puntosAEvaluar.at(i)));
+    }
+}
 

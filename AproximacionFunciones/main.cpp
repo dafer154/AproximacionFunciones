@@ -1,7 +1,7 @@
 #include "interfaz.h"
 #include <QApplication>
-#include "interfazguilogica.h"
 #include <QVector>
+#include <funcionexacta.h>
 
 /*int main(int argc, char *argv[])
 {
@@ -41,6 +41,29 @@ int main(){
 
     guiLogica.resultadoLagrange;
    */
+
+    FuncionExacta funcionPrueba;
+
+    QString funcion="x^2";
+    //double intervaloInf=0;
+    //double intervaloSup=5;
+    //double salto=1;
+
+    QVector<double> x;
+
+    x.push_back(0);
+    x.push_back(2);
+    x.push_back(4);
+    x.push_back(6);
+    x.push_back(8);
+    x.push_back(10);
+
+
+
+    funcionPrueba.evaluarFuncionVariosPuntos(funcion, x);
+
+
+    //double resultado=funcionPrueba.evaluarFuncion(funcion, intervaloSup);
 
     return 0;
 }
