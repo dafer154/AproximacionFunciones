@@ -25,7 +25,7 @@ Lagrange::~Lagrange()
  * @param xAEvaluar valor que se desea interpolar
  * @return
  */
-double Lagrange::polinomioLagrange(vector<double> xIniciales, vector<double> yIniciales, double xAEvaluar)
+double Lagrange::polinomioLagrange(QVector<double> xIniciales, QVector<double> yIniciales, double xAEvaluar)
 {
     double resultadoLagrange = 0;
 
@@ -36,12 +36,12 @@ double Lagrange::polinomioLagrange(vector<double> xIniciales, vector<double> yIn
         denominador = 1;
         for (int j = 0; j < tamano; j++) {
             if(i!=j){
-                numerador *= (xAEvaluar-xIniciales[j]);
-                denominador *= (xIniciales[i]-xIniciales[j]);
+                numerador *= (xAEvaluar-xIniciales.at(j));
+                denominador *= (xIniciales.at(i)-xIniciales.at(j));
             }
         }
-        resultadoLagrange += (numerador/denominador)*yIniciales[i];
-        cout << (numerador/denominador)*yIniciales[i] << endl;
+        resultadoLagrange += (numerador/denominador)*yIniciales.at(i);
+        cout << (numerador/denominador)*yIniciales.at(i) << endl;
     }
     return resultadoLagrange;
 }

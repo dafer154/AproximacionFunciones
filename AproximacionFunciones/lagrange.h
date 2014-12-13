@@ -1,9 +1,7 @@
 #ifndef LAGRANGE_H
 #define LAGRANGE_H
 
-
-
-#include <vector>
+#include <QVector>
 using namespace std;
 
 class Lagrange
@@ -11,7 +9,7 @@ class Lagrange
 public:
     Lagrange();
     ~Lagrange();
-    double polinomioLagrange(vector <double> xIniciales, vector <double> yIniciales, double xAEvaluar);
+    double polinomioLagrange(QVector <double> xIniciales, QVector <double> yIniciales, double xAEvaluar);
 };
 
 #endif // LAGRANGE_H

@@ -16,14 +16,17 @@ SOURCES += main.cpp\
     funcionexacta.cpp \
     graficador.cpp \
     lagrange.cpp \
-    interfaz.cpp
+    interfaz.cpp \
+    interprete/exprtk_simple_example_01.cpp \
+    interfazguilogica.cpp
 
 HEADERS  += \
     funcionexacta.h \
     graficador.h \
-    interfazalgoritmosgraficador.h \
     lagrange.h \
-    interfaz.h
+    interfaz.h \
+    interprete/exprtk.hpp \
+    interfazguilogica.h
 
 FORMS    += \
     interfaz.ui
