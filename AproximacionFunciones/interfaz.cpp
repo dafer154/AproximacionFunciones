@@ -10,8 +10,6 @@ Interfaz::Interfaz(QWidget *parent) :
 {
     ui->setupUi(this);
     QMainWindow::showMaximized();//iniciar la aplicacion maximizada
-
-    //prueba
 }
 
 Interfaz::~Interfaz()
