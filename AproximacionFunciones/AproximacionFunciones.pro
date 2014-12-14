@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = AproximacionFunciones
 TEMPLATE = app
@@ -14,16 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     funcionexacta.cpp \
-    graficador.cpp \
     lagrange.cpp \
-    interfaz.cpp
+    interfaz.cpp \
+    qcustomplot.cpp
 
 HEADERS  += \
     funcionexacta.h \
-    graficador.h \
-    interfazalgoritmosgraficador.h \
     lagrange.h \
-    interfaz.h
+    interfaz.h \
+    qcustomplot.h
 
 FORMS    += \
     interfaz.ui
