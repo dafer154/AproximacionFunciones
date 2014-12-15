@@ -90,7 +90,7 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
 
 void Interfaz::on_bt_graficar_clicked()
 {
-    calularPuntosAEvaluar();
+    calcularPuntosAEvaluar();
 
     funcionExacta.evaluarFuncionVariosPuntos(ui->tb_funcion->text(),
                                              puntosAEvaluar);
@@ -151,9 +151,9 @@ void Interfaz::on_bt_validarParametros_clicked()
 
 
 
-void Interfaz::calularPuntosAEvaluar(){
+void Interfaz::calcularPuntosAEvaluar(){
     puntosAEvaluar.clear();
-    for (double i = ui->sb_intervalo1->value(); i <=ui->sb_intervalo2->value() ; i+=0.1) {
+    for (double i = ui->sb_intervalo1->value()-20; i <=ui->sb_intervalo2->value()+20; i+=0.1) {
         puntosAEvaluar.push_back(i);
     }
 }
@@ -178,7 +178,8 @@ void Interfaz::on_bt_validarX_clicked()
     ui->tb_funcionEvaluada->setText(QString::number(valorFuncionExacta));
     ui->tb_errorAbsoluto->setText(QString::number(fabs(valorFuncionExacta-
                                                        valorLagrange)));
-    ui->wg_grafica->xAxis->setRange(ui->sb_intervalo1->value()-1,ui->sb_intervalo2->value()+1);
+    ui->wg_grafica->xAxis->setRange(ui->sb_valorX->value()-0.1, ui->sb_valorX->value()+0.1);
+    ui->wg_grafica->yAxis->setRange(valorFuncionExacta-0.1, valorFuncionExacta+0.1);
     ui->wg_grafica->replot();
 
 }

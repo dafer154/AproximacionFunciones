@@ -22,7 +22,7 @@ public:
     FuncionExacta funcionExacta;
     Lagrange lagrange;
      QVector<double> puntosXIniciales,yinicialesLagrange,puntosAEvaluar,yIniciales;
-     void calularPuntosAEvaluar();
+     void calcularPuntosAEvaluar();
      void generarpuntosX(double salto);
 
 

@@ -13,6 +13,8 @@ FuncionExacta::~FuncionExacta()
 
 void FuncionExacta::evaluarFuncionVariosPuntos(QString funcion, QVector<double> puntos)
 {
+    ymin=1000000;
+    ymax=-1000000;
     resultadosFuncionExacta.clear();
 
     double x;
