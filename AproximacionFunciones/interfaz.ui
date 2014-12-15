@@ -704,7 +704,7 @@ border-color: rgb(199, 197, 197);
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
-                <string>Validar</string>
+                <string>Calcular</string>
                </property>
                <property name="icon">
                 <iconset resource="imagenes.qrc">

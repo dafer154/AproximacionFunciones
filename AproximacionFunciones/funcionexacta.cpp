@@ -40,6 +40,29 @@ void FuncionExacta::evaluarFuncionVariosPuntos(QString funcion, QVector<double> 
 }
 
 
+void FuncionExacta::evaluarFuncionVariosPuntosLagrange(QString funcion, QVector<double> puntos)
+{
+    resultadosFuncionExactaLagrange.clear();
+
+    double x;
+    exprtk::symbol_table<double> symbol_table;
+    symbol_table.add_variable("x",x);
+    symbol_table.add_constants();
+
+    exprtk::expression<double> expression;
+    expression.register_symbol_table(symbol_table);
+
+    exprtk::parser<double> parser;
+    parser.compile(funcion.toStdString(),expression);
+
+    int size=puntos.size();
+
+    for (int i = 0; i < size; ++i) {
+        x=puntos.at(i);
+        resultadosFuncionExactaLagrange.push_back((double) expression.value());
+    }
+}
+
 double FuncionExacta::evaluarFuncion(QString funcion, double punto)
 {
 

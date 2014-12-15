@@ -43,7 +43,7 @@ private slots:
 
     void on_rB_generarPuntos_clicked();
 
-    void on_sb_salto_valueChanged();
+    void on_sb_salto_valueChanged(double arg1);
 
 
 
@@ -51,11 +51,13 @@ private slots:
 
     void on_tb_funcion_textEdited();
 
-    void on_sb_intervalo1_valueChanged();
+    void on_sb_intervalo1_valueChanged(double arg1);
 
-    void on_sb_intervalo2_valueChanged();
+    void on_sb_intervalo2_valueChanged(double arg1);
 
     void on_bt_limpiarTodo_clicked();
+
+
 
 private:
     Ui::Interfaz *ui;

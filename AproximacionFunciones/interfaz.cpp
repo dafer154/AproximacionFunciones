@@ -92,12 +92,10 @@ void Interfaz::on_bt_graficar_clicked()
 {
     calularPuntosAEvaluar();
 
-
-
     funcionExacta.evaluarFuncionVariosPuntos(ui->tb_funcion->text(),
                                              puntosAEvaluar);
     lagrange.calcularPuntosConLagrange(puntosXIniciales,
-                                       funcionExacta.resultadosFuncionExacta,
+                                       funcionExacta.resultadosFuncionExactaLagrange,
                                        puntosAEvaluar);
     graficar(puntosAEvaluar,lagrange.resultadoLagrange,
              funcionExacta.resultadosFuncionExacta);
@@ -118,14 +116,14 @@ void Interfaz::on_bt_validarParametros_clicked()
         ui->sb_intervalo1->setValue(puntosXIniciales.at(0));
         ui->sb_intervalo2->setValue(puntosXIniciales.at(size-1));
 
-        funcionExacta.evaluarFuncionVariosPuntos(ui->tb_funcion->text(),
+        funcionExacta.evaluarFuncionVariosPuntosLagrange(ui->tb_funcion->text(),
                                                  puntosXIniciales);
 
         ui->tabla_puntos->setColumnCount(size);
         for (int i = 0; i < size; ++i) {
             ui->tabla_puntos->setItem(0,i,new QTableWidgetItem(QString::number(puntosXIniciales.at(i))));
             ui->tabla_puntos->setItem(1,i,new QTableWidgetItem(QString::number(
-                                                                   funcionExacta.resultadosFuncionExacta.at(i))));
+                                                                   funcionExacta.resultadosFuncionExactaLagrange.at(i))));
         }
         ui->bt_graficar->setEnabled(true);
 
@@ -136,13 +134,13 @@ void Interfaz::on_bt_validarParametros_clicked()
             ui->tabla_puntos->clear();
             generarpuntosX(ui->sb_salto->value());
             int size=puntosXIniciales.size();
-            funcionExacta.evaluarFuncionVariosPuntos(ui->tb_funcion->text(),
+            funcionExacta.evaluarFuncionVariosPuntosLagrange(ui->tb_funcion->text(),
                                                      puntosXIniciales);
             ui->tabla_puntos->setColumnCount(size);
             for (int i = 0; i < size; ++i) {
                 ui->tabla_puntos->setItem(0,i,new QTableWidgetItem(QString::number(puntosXIniciales.at(i))));
-                ui->tabla_puntos->setItem(1,i,new QTableWidgetItem(QString::number(
-                                                                       funcionExacta.resultadosFuncionExacta.at(i))));
+                ui->tabla_puntos->setItem(1,i,new QTableWidgetItem(
+                                              QString::number(funcionExacta.resultadosFuncionExactaLagrange.at(i))));
             }
             ui->bt_graficar->setEnabled(true);
 
@@ -180,6 +178,8 @@ void Interfaz::on_bt_validarX_clicked()
     ui->tb_funcionEvaluada->setText(QString::number(valorFuncionExacta));
     ui->tb_errorAbsoluto->setText(QString::number(fabs(valorFuncionExacta-
                                                        valorLagrange)));
+    ui->wg_grafica->xAxis->setRange(ui->sb_intervalo1->value()-1,ui->sb_intervalo2->value()+1);
+    ui->wg_grafica->replot();
 
 }
 
@@ -223,7 +223,7 @@ void Interfaz::on_rB_generarPuntos_clicked()
 
 }
 
-void Interfaz::on_sb_salto_valueChanged()
+void Interfaz::on_sb_salto_valueChanged(double arg1)
 {
    ui->bt_graficar->setEnabled(false);
    ui->gb_verificacionError->setEnabled(false);
@@ -251,7 +251,7 @@ void Interfaz::on_tb_funcion_textEdited()
 
 }
 
-void Interfaz::on_sb_intervalo1_valueChanged()
+void Interfaz::on_sb_intervalo1_valueChanged(double arg1)
 {
     ui->bt_graficar->setEnabled(false);
     ui->gb_verificacionError->setEnabled(false);
@@ -264,7 +264,7 @@ void Interfaz::on_sb_intervalo1_valueChanged()
 
 }
 
-void Interfaz::on_sb_intervalo2_valueChanged()
+void Interfaz::on_sb_intervalo2_valueChanged(double arg1)
 {
     ui->bt_graficar->setEnabled(false);
     ui->gb_verificacionError->setEnabled(false);
@@ -304,3 +304,4 @@ void Interfaz::on_bt_limpiarTodo_clicked()
 
 
 }
+
