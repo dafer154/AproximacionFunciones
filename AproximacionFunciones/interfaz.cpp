@@ -10,6 +10,7 @@ Interfaz::Interfaz(QWidget *parent) :
 {
     ui->setupUi(this);
     QMainWindow::showMaximized();//iniciar la aplicacion maximizada
+
     //prueba
     //connect(ui->wg_grafica, SIGNAL(mousePress(QMouseEvent*)), this, SLOT(mousePress()));
 }
@@ -62,6 +63,7 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
     ui->wg_grafica->graph(0)->setData(x,y1);
     ui->wg_grafica->addGraph();
     ui->wg_grafica->graph(1)->setData(x,y2);
+    ui->wg_grafica->addGraph();
 
     //nombre para los ejes
     ui->wg_grafica->xAxis->setLabel("x");
@@ -81,10 +83,12 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
 
 
 
+
     ui->wg_grafica->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |
                                     QCP::iSelectLegend | QCP::iSelectPlottables);
 
     ui->wg_grafica->replot();
+    //connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)),ui->centralWidget,SLOT(showPointToolTip(QMouseEvent*)));
 }
 
 
@@ -153,7 +157,9 @@ void Interfaz::on_bt_validarParametros_clicked()
 
 void Interfaz::calcularPuntosAEvaluar(){
     puntosAEvaluar.clear();
-    for (double i = ui->sb_intervalo1->value()-20; i <=ui->sb_intervalo2->value()+20; i+=0.1) {
+    //calcular extrapolacion
+    //for (double i = ui->sb_intervalo1->value()-20; i <=ui->sb_intervalo2->value()+20; i+=0.1) {
+    for (double i = ui->sb_intervalo1->value(); i <=ui->sb_intervalo2->value(); i+=0.1) {
         puntosAEvaluar.push_back(i);
     }
 }
@@ -170,6 +176,8 @@ void Interfaz::generarpuntosX(double salto){
 void Interfaz::on_bt_validarX_clicked()
 {
 
+
+
     double valorLagrange=lagrange.calcularPuntoConLagrange(puntosXIniciales,ui->sb_valorX->value());
     double valorFuncionExacta=funcionExacta.evaluarFuncion(
                 ui->tb_funcion->text(),ui->sb_valorX->value());
@@ -180,7 +188,26 @@ void Interfaz::on_bt_validarX_clicked()
                                                        valorLagrange)));
     ui->wg_grafica->xAxis->setRange(ui->sb_valorX->value()-0.1, ui->sb_valorX->value()+0.1);
     ui->wg_grafica->yAxis->setRange(valorFuncionExacta-0.1, valorFuncionExacta+0.1);
-    ui->wg_grafica->replot();
+
+    QVector <double> puntosEnXerror;
+    QVector <double> puntosEnYerror;
+    puntosEnXerror.clear();
+    puntosEnYerror.clear();
+    puntosEnXerror.push_back(ui->sb_valorX->value());
+    puntosEnXerror.push_back(ui->sb_valorX->value());
+    puntosEnYerror.push_back(funcionExacta.ymin-10);
+    puntosEnYerror.push_back(funcionExacta.ymax+10);
+
+
+        ui->wg_grafica->graph(2)->clearData();
+
+        ui->wg_grafica->graph(2)->setData(puntosEnXerror,puntosEnYerror);
+        ui->wg_grafica->graph(2)->setName("x= "+QString::number(ui->sb_valorX->value()));
+        //ui->wg_grafica->graph(2)->setLineStyle((QCPGraph::LineStyle)Qt::DashDotLine); //personalizar el estilo de linea
+        ui->wg_grafica->graph(2)->setPen(QPen(Qt::DashLine));
+        ui->wg_grafica->replot();
+
+
 
 }
 
@@ -306,3 +333,14 @@ void Interfaz::on_bt_limpiarTodo_clicked()
 
 }
 
+
+/*
+void Interfaz::showPointToolTip(QMouseEvent *event)
+{
+
+    int x = ui->wg_grafica->xAxis->pixelToCoord(event->pos().x());
+    int y = ui->wg_grafica->yAxis->pixelToCoord(event->pos().y());
+
+    setToolTip(QString("%1 , %2").arg(x).arg(y));
+
+}*/

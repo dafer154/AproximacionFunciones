@@ -91,7 +91,7 @@ border-color: rgb(199, 197, 197);
                </size>
               </property>
               <property name="text">
-               <string>x^2</string>
+               <string>cos(x)</string>
               </property>
               <property name="dragEnabled">
                <bool>false</bool>
@@ -457,13 +457,16 @@ border-color: rgb(0, 0, 0);</string>
                     <bool>false</bool>
                    </property>
                    <property name="minimum">
-                    <double>0.100000000000000</double>
+                    <double>-1000.000000000000000</double>
+                   </property>
+                   <property name="maximum">
+                    <double>1000.000000000000000</double>
                    </property>
                    <property name="singleStep">
-                    <double>0.100000000000000</double>
+                    <double>1.000000000000000</double>
                    </property>
                    <property name="value">
-                    <double>0.100000000000000</double>
+                    <double>1.000000000000000</double>
                    </property>
                   </widget>
                  </item>

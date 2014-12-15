@@ -16,7 +16,6 @@ class Interfaz : public QMainWindow
 
 public:
     explicit Interfaz(QWidget *parent = 0); 
-    QVector<double>getPuntosXo();
     ~Interfaz();
     void graficar(QVector<double>x, QVector<double>y1, QVector<double> y2);
     FuncionExacta funcionExacta;
@@ -24,6 +23,7 @@ public:
      QVector<double> puntosXIniciales,yinicialesLagrange,puntosAEvaluar,yIniciales;
      void calcularPuntosAEvaluar();
      void generarpuntosX(double salto);
+     void showPointToolTip(QMouseEvent *event);
 
 
 
