@@ -21,8 +21,10 @@ public:
     void graficar(QVector<double>x, QVector<double>y1, QVector<double> y2);
     FuncionExacta funcionExacta;
     Lagrange lagrange;
-     QVector<double> puntosXarchivo,yinicialesLagrange,puntosAEvaluar,yIniciales;
-     void calularPuntosAEvaluar(double salto);
+     QVector<double> puntosXIniciales,yinicialesLagrange,puntosAEvaluar,yIniciales;
+     void calularPuntosAEvaluar();
+     void generarpuntosX(double salto);
+
 
 
 
@@ -36,6 +38,24 @@ private slots:
     void on_bt_validarParametros_clicked();
 
     void on_bt_validarX_clicked();
+
+    void on_rB_cargarArchivo_clicked();
+
+    void on_rB_generarPuntos_clicked();
+
+    void on_sb_salto_valueChanged();
+
+
+
+
+
+    void on_tb_funcion_textEdited();
+
+    void on_sb_intervalo1_valueChanged();
+
+    void on_sb_intervalo2_valueChanged();
+
+    void on_bt_limpiarTodo_clicked();
 
 private:
     Ui::Interfaz *ui;

@@ -29,18 +29,14 @@ void FuncionExacta::evaluarFuncionVariosPuntos(QString funcion, QVector<double> 
     int size=puntos.size();
 
     for (int i = 0; i < size; ++i) {
+        x=puntos.at(i);
         double y= (double) expression.value();
         if (y<ymin)
             ymin=y;
         if (y>ymax)
             ymax=y;
-        x=puntos.at(i);
-
         resultadosFuncionExacta.push_back(y);
-
-
     }
-
 }
 
 
