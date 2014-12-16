@@ -65,6 +65,10 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
     ui->wg_grafica->graph(1)->setData(x,y2);
     ui->wg_grafica->addGraph();
     ui->wg_grafica->graph(2)->removeFromLegend();
+    ui->wg_grafica->addGraph();
+    ui->wg_grafica->graph(3)->removeFromLegend();
+    ui->wg_grafica->addGraph();
+    ui->wg_grafica->graph(4)->removeFromLegend();
 
     //nombre para los ejes
     ui->wg_grafica->xAxis->setLabel("x");
@@ -82,7 +86,33 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
     ui->wg_grafica->graph(1)->setName("Valor real");
 
 
+    //Lineas que marcan inicio del intervalo en que se interpola
+    QVector <double> puntosEnXIntervaloInfX;
+    QVector <double> puntosEnYIntervaloInfY;
+    puntosEnXIntervaloInfX.clear();
+    puntosEnYIntervaloInfY.clear();
+    puntosEnXIntervaloInfX.push_back(ui->sb_intervalo1->value());
+    puntosEnXIntervaloInfX.push_back(ui->sb_intervalo1->value());
+    puntosEnYIntervaloInfY.push_back(funcionExacta.ymin-10);
+    puntosEnYIntervaloInfY.push_back(funcionExacta.ymax+10);
 
+    ui->wg_grafica->graph(3)->setPen(QPen(Qt::gray));
+    ui->wg_grafica->graph(3)->clearData();
+    ui->wg_grafica->graph(3)->setData(puntosEnXIntervaloInfX,puntosEnYIntervaloInfY);
+
+    //Lineas que marcan fin del intervalo en que se interpola
+    QVector <double> puntosEnXIntervaloSupX;
+    QVector <double> puntosEnYIntervaloSupY;
+    puntosEnXIntervaloSupX.clear();
+    puntosEnYIntervaloSupY.clear();
+    puntosEnXIntervaloSupX.push_back(ui->sb_intervalo2->value());
+    puntosEnXIntervaloSupX.push_back(ui->sb_intervalo2->value());
+    puntosEnYIntervaloSupY.push_back(funcionExacta.ymin-10);
+    puntosEnYIntervaloSupY.push_back(funcionExacta.ymax+10);
+
+    ui->wg_grafica->graph(4)->setPen(QPen(Qt::gray));
+    ui->wg_grafica->graph(4)->clearData();
+    ui->wg_grafica->graph(4)->setData(puntosEnXIntervaloSupX,puntosEnYIntervaloSupY);
 
 
     ui->wg_grafica->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |
@@ -90,7 +120,7 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
 
     ui->wg_grafica->replot();
     connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)),this,SLOT(showPointToolTip(QMouseEvent*)));
-   // connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)), this,SLOT(showPointToolTip()));
+    // connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)), this,SLOT(showPointToolTip()));
 }
 
 
@@ -123,7 +153,7 @@ void Interfaz::on_bt_validarParametros_clicked()
         ui->sb_intervalo2->setValue(puntosXIniciales.at(size-1));
 
         funcionExacta.evaluarFuncionVariosPuntosLagrange(ui->tb_funcion->text(),
-                                                 puntosXIniciales);
+                                                         puntosXIniciales);
 
         ui->tabla_puntos->setColumnCount(size);
         for (int i = 0; i < size; ++i) {
@@ -141,7 +171,7 @@ void Interfaz::on_bt_validarParametros_clicked()
             generarpuntosX(ui->sb_salto->value());
             int size=puntosXIniciales.size();
             funcionExacta.evaluarFuncionVariosPuntosLagrange(ui->tb_funcion->text(),
-                                                     puntosXIniciales);
+                                                             puntosXIniciales);
             ui->tabla_puntos->setColumnCount(size);
             for (int i = 0; i < size; ++i) {
                 ui->tabla_puntos->setItem(0,i,new QTableWidgetItem(QString::number(puntosXIniciales.at(i))));
@@ -160,8 +190,7 @@ void Interfaz::on_bt_validarParametros_clicked()
 void Interfaz::calcularPuntosAEvaluar(){
     puntosAEvaluar.clear();
     //calcular extrapolacion
-    //for (double i = ui->sb_intervalo1->value()-20; i <=ui->sb_intervalo2->value()+20; i+=0.1) {
-    for (double i = ui->sb_intervalo1->value(); i <=ui->sb_intervalo2->value(); i+=0.1) {
+    for (double i = ui->sb_intervalo1->value()-10; i <=ui->sb_intervalo2->value()+10; i+=0.1) {
         puntosAEvaluar.push_back(i);
     }
 }
@@ -169,7 +198,7 @@ void Interfaz::calcularPuntosAEvaluar(){
 void Interfaz::generarpuntosX(double salto){
     puntosXIniciales.clear();
     for (double i = ui->sb_intervalo1->value(); i <=ui->sb_intervalo2->value() ; i+=salto) {
-       puntosXIniciales.push_back(i);
+        puntosXIniciales.push_back(i);
     }
 }
 
@@ -198,13 +227,12 @@ void Interfaz::on_bt_validarX_clicked()
     puntosEnYerror.push_back(funcionExacta.ymax+10);
 
 
-        ui->wg_grafica->graph(2)->clearData();
-
-        ui->wg_grafica->graph(2)->setData(puntosEnXerror,puntosEnYerror);
-        //ui->wg_grafica->graph(2)->setName("x= "+QString::number(ui->sb_valorX->value()));
-        //ui->wg_grafica->graph(2)->setLineStyle((QCPGraph::LineStyle)Qt::DashDotLine); //personalizar el estilo de linea
-        ui->wg_grafica->graph(2)->setPen(QPen(Qt::DashLine));
-        ui->wg_grafica->replot();
+    ui->wg_grafica->graph(2)->clearData();
+    ui->wg_grafica->graph(2)->setData(puntosEnXerror,puntosEnYerror);
+    //ui->wg_grafica->graph(2)->setName("x= "+QString::number(ui->sb_valorX->value()));
+    //ui->wg_grafica->graph(2)->setLineStyle((QCPGraph::LineStyle)Qt::DashDotLine); //personalizar el estilo de linea
+    ui->wg_grafica->graph(2)->setPen(QPen(Qt::DashLine));
+    ui->wg_grafica->replot();
 
 
 
@@ -252,14 +280,14 @@ void Interfaz::on_rB_generarPuntos_clicked()
 
 void Interfaz::on_sb_salto_valueChanged(double arg1)
 {
-   ui->bt_graficar->setEnabled(false);
-   ui->gb_verificacionError->setEnabled(false);
-   ui->sb_valorX->setValue(0.0);
-   ui->tb_funcionEvaluada->setText("");
-   ui->tb_segunLagrange->setText("");
-   ui->tb_errorAbsoluto->setText("");
-   ui->tabla_puntos->clear();
-   ui->wg_grafica->clearGraphs();
+    ui->bt_graficar->setEnabled(false);
+    ui->gb_verificacionError->setEnabled(false);
+    ui->sb_valorX->setValue(0.0);
+    ui->tb_funcionEvaluada->setText("");
+    ui->tb_segunLagrange->setText("");
+    ui->tb_errorAbsoluto->setText("");
+    ui->tabla_puntos->clear();
+    ui->wg_grafica->clearGraphs();
 
 }
 
