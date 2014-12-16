@@ -474,7 +474,7 @@ private:
 
 class QCP_LIB_DECL QCPRange
 {
-public:
+public:    
   double lower, upper;
   
   QCPRange();
@@ -507,6 +507,7 @@ public:
   static bool validRange(const QCPRange &range);
   static const double minRange; //1e-280;
   static const double maxRange; //1e280;
+
   
 };
 Q_DECLARE_TYPEINFO(QCPRange, Q_MOVABLE_TYPE);
@@ -1794,6 +1795,7 @@ public:
   
   QCPAxis *xAxis, *yAxis, *xAxis2, *yAxis2;
   QCPLegend *legend;
+
   
 signals:
   void mouseDoubleClick(QMouseEvent *event);

@@ -23,6 +23,7 @@ public:
      QVector<double> puntosXIniciales,yinicialesLagrange,puntosAEvaluar,yIniciales;
      void calcularPuntosAEvaluar();
      void generarpuntosX(double salto);
+public slots:
      void showPointToolTip(QMouseEvent *event);
 
 

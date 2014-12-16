@@ -64,6 +64,7 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
     ui->wg_grafica->addGraph();
     ui->wg_grafica->graph(1)->setData(x,y2);
     ui->wg_grafica->addGraph();
+    ui->wg_grafica->graph(2)->removeFromLegend();
 
     //nombre para los ejes
     ui->wg_grafica->xAxis->setLabel("x");
@@ -88,7 +89,8 @@ void Interfaz::graficar(QVector<double> x, QVector<double> y1,QVector<double> y2
                                     QCP::iSelectLegend | QCP::iSelectPlottables);
 
     ui->wg_grafica->replot();
-    //connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)),ui->centralWidget,SLOT(showPointToolTip(QMouseEvent*)));
+    connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)),this,SLOT(showPointToolTip(QMouseEvent*)));
+   // connect(ui->wg_grafica, SIGNAL(mouseMove(QMouseEvent*)), this,SLOT(showPointToolTip()));
 }
 
 
@@ -175,9 +177,6 @@ void Interfaz::generarpuntosX(double salto){
 
 void Interfaz::on_bt_validarX_clicked()
 {
-
-
-
     double valorLagrange=lagrange.calcularPuntoConLagrange(puntosXIniciales,ui->sb_valorX->value());
     double valorFuncionExacta=funcionExacta.evaluarFuncion(
                 ui->tb_funcion->text(),ui->sb_valorX->value());
@@ -202,7 +201,7 @@ void Interfaz::on_bt_validarX_clicked()
         ui->wg_grafica->graph(2)->clearData();
 
         ui->wg_grafica->graph(2)->setData(puntosEnXerror,puntosEnYerror);
-        ui->wg_grafica->graph(2)->setName("x= "+QString::number(ui->sb_valorX->value()));
+        //ui->wg_grafica->graph(2)->setName("x= "+QString::number(ui->sb_valorX->value()));
         //ui->wg_grafica->graph(2)->setLineStyle((QCPGraph::LineStyle)Qt::DashDotLine); //personalizar el estilo de linea
         ui->wg_grafica->graph(2)->setPen(QPen(Qt::DashLine));
         ui->wg_grafica->replot();
@@ -333,14 +332,11 @@ void Interfaz::on_bt_limpiarTodo_clicked()
 
 }
 
-
-/*
 void Interfaz::showPointToolTip(QMouseEvent *event)
 {
 
-    int x = ui->wg_grafica->xAxis->pixelToCoord(event->pos().x());
-    int y = ui->wg_grafica->yAxis->pixelToCoord(event->pos().y());
+    double x = ui->wg_grafica->xAxis->pixelToCoord(event->pos().x());
+    double y = ui->wg_grafica->yAxis->pixelToCoord(event->pos().y());
 
-    setToolTip(QString("%1 , %2").arg(x).arg(y));
-
-}*/
+    QToolTip::showText(ui->wg_grafica->mapToGlobal(event->pos()), QString("%1 , %2").arg(x).arg(y));
+}

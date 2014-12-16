@@ -9137,7 +9137,6 @@ QCustomPlot::QCustomPlot(QWidget *parent) :
   legend->setLayer("legend");
   
   setViewport(rect()); // needs to be called after mPlotLayout has been created
-  
   replot();
 }
 
@@ -21367,4 +21366,5 @@ QPen QCPItemBracket::mainPen() const
 {
     return mSelected ? mSelectedPen : mPen;
 }
+
 
